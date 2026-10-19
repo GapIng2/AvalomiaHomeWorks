@@ -1,0 +1,58 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaApplication1.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication1.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaApplication1">
+
+        <Grid ColumnDefinitions="300,20,*">
+               <StackPanel Grid.Column="0">
+                   <TextBlock  Text="Дейкстры"></TextBlock>
+                   <TextBlock  Text="Управление графом"></TextBlock>
+                   <TextBox PlaceholderText="Добавить вершину" x:Name="VertexTextBox"></TextBox>
+                   <Button Content="Добавить" x:Name="btnAdd" Click="BtnAdd_OnClick"></Button>
+                   <TextBlock  Text="Добавить ребро"></TextBlock>
+                   
+                   <Grid ColumnDefinitions="*,30,*">
+                       <ComboBox Grid.Column="0" x:Name="ComboBoxOne">
+                       </ComboBox>
+                   
+                       <ComboBox Grid.Column="2" x:Name="ComboBoxTwo">
+                       </ComboBox>
+                       
+                       
+                   </Grid>
+                   
+                   <TextBox PlaceholderText="Вес ребра" x:Name="WeightTextBox"></TextBox>
+                   <Button Content="Добавить" x:Name="AddEdgeButton" Click="AddEdgeButton_OnClick"></Button>
+                   <TextBlock Text="Начальная вершина"/>
+                   <ComboBox x:Name="StartVertexComboBox"/>
+
+                   <TextBlock Text="Конечная вершина"/>
+                   <ComboBox x:Name="FinishVertexComboBox"/>
+
+                   <Button Content="Найти кратчайший путь"
+                           Click="FindPathButton_OnClick"/>
+
+                   <TextBlock x:Name="PathResultText"/>
+                   
+               </StackPanel>
+                
+            <Grid Grid.Column="2">
+                <TextBlock Text="Граф"></TextBlock>
+
+                <Canvas x:Name="CanvasGraph"
+                        Background="Gray"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+                </Canvas>
+            </Grid>
+            
+           
+        </Grid>
+
+</Window>
